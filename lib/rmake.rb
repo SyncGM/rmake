@@ -374,7 +374,7 @@ module SES
       # Defines a {Task} (or number of {Task} instances) and adds it to the
       # current {Runner}.
       # 
-      # @param name [#to_sym, Hash{#to_sym => Array<#to_sym>}] the name of the
+      # @param type [#to_sym, Hash{#to_sym => Array<#to_sym>}] the name of the
       #   task (or a hash of tasks and their dependencies) being defined
       # @return [Task] the defined {Task} instance
       def task(type, &action)
