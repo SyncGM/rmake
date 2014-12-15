@@ -6,7 +6,7 @@
 # -----------------------------------------------------------------------------
 #   This script provides a very simple Rake-like utility for RPG Maker VX Ace
 # projects which is run directly from the game player itself. Usage of a REPL
-# (such as the [SES Console](https://github.com/sesvxace/console) is highly
+# (such as the [SES Console](https://github.com/sesvxace/console)) is highly
 # recommended in order to make use of this script, though not necessary. This
 # is primarily a scripter's tool.
 # 
