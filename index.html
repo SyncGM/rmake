@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: README
+  
+    &mdash; SES RMake Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>RMake v1.0 by Solistra</h1>
+
+<h2>Summary</h2>
+
+<p>This script provides a very simple Rake-like utility for RPG Maker VX Ace
+projects which is run directly from the game player itself. Usage of a REPL
+(such as the <a href="https://github.com/sesvxace/console">SES Console</a> is highly
+recommended in order to make use of this script, though not necessary. This
+is primarily a scripter&#39;s tool.</p>
+
+<h2>Usage</h2>
+
+<p>This script attempts to behave similarly to the Rake utility commonly used
+in Ruby development. As such, invocation of RMake should be familiar: simply
+calling <code>rmake</code> via REPL or a script call will call the <code>:default</code> task; in
+order to call specific tasks (or a list of tasks in order), simply pass the
+tasks you wish to run to the <code>rmake</code> method as arguments. Tasks may be
+defined in an external file (the recommended way to define them) or through a
+script defined in the Ace script editor. The name of the external file (or
+internal script) may be defined in the configuration area for this script.</p>
+
+<p>Note that this script is, essentially, an incredibly simple version of the
+Rake utility -- as such, the DSL for defining tasks is appropriately simple.
+In order to define a task with no defined dependent tasks, simply use the
+<code>task</code> method, pass the name of your task as an argument, and provide a block
+which will be stored as that task&#39;s action:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_task'>task</span> <span class='symbol'>:example</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>This is an example task.</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Defining a task with dependencies is just as simple, requiring only that
+you pass a hash into the <code>task</code> method; the key of the hash becomes your task
+name, and its value is an array of dependencies. Dependencies defined in this
+way will be called in the order given <em>before</em> the defined task is executed.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_task'>task</span> <span class='symbol'>:another_example</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:example</span><span class='rbracket'>]</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>This task has a dependency.</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Considering the dependency on the <code>:example</code> task, if you call <code>rmake</code> with
+<code>:another_example</code> as the task, you should see the following output:</p>
+
+<pre class="code ruby"><code class="ruby">&gt;&gt; rmake :another_example
+This is an example task.
+This task has a dependency.
+</code></pre>
+
+<p>You may also add descriptions to your tasks with the <code>desc</code> method by
+placing it directly before a task definition -- this is primarily used to
+display usage information for the built-in <code>:help</code> task.</p>
+
+<pre class="code ruby"><code class="ruby">desc 'Prints an example message.'
+task :example do ... end
+</code></pre>
+
+<p>This will provide a usage string whenever you run RMake with the either the
+<code>:tasks</code> or <code>:help</code> task like so:</p>
+
+<pre class="code ruby"><code class="ruby">&gt;&gt; rmake :help
+Usage: rmake [:task[, :task ...]]
+Tasks:
+  default          (undescribed)
+  example          Prints an example message.
+</code></pre>
+
+<p>Note that you may also explicitly define your own <code>:default</code> task to be run
+when <code>rmake</code> is called without arguments, or you may overwrite the <code>:default</code>
+task with a task that you have previously defined:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Prints an example message. (default)</span><span class='tstring_end'>'</span></span>
+<span class='id identifier rubyid_task'>task</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:example</span><span class='rbracket'>]</span>
+</code></pre>
+
+<h2>License</h2>
+
+<p>This script is made available under the terms of the MIT Expat license.
+View <a href="http://sesvxace.wordpress.com/license/">this page</a> for more detailed
+information.</p>
+
+<h2>Installation</h2>
+
+<p>Place this script below the SES Core (v2.0 or higher) script (if you are
+using it) or the Materials header, but above all other custom scripts. This
+script does not require the SES Core, but it is highly recommended.</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Dec 15 17:49:25 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

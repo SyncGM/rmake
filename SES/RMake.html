@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: SES::RMake
+  
+    &mdash; SES RMake Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!SES/RMake.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../SES.html" title="SES (module)">SES</a></span></span>
+     &raquo; 
+    <span class="title">RMake</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: SES::RMake
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rmake.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <h1>RMake</h1>
+
+<p>Provides classes and modules which culminate in a Rake-like utility.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RMake/DSL.html" title="SES::RMake::DSL (module)">DSL</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RMake/Runner.html" title="SES::RMake::Runner (class)">Runner</a></span>, <span class='object_link'><a href="RMake/Task.html" title="SES::RMake::Task (class)">Task</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="FILE-constant" class="">FILE =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The value of this constant determines how <span class='object_link'><a href="" title="SES::RMake (module)">SES::RMake</a></span> will attempt to collect
+and execute tasks. The default (and highly recommended) way to use this
+constant is to provide a string which represents an external file to run
+relative to your project&#39;s root directory. It is also possible, however,
+to use a tasks file which is defined within the Ace Script Editor by
+using a value of <code>:internal</code> -- in this case, the first script with the
+name specified by <span class='object_link'><a href="#RGSS_SCRIPT-constant" title="SES::RMake::RGSS_SCRIPT (constant)">RGSS_SCRIPT</a></span> will be used as the tasks file.</p>
+
+<p><strong>NOTE:</strong> Using an internal tasks file will cause the contents of the
+script to be executed by the game player as usual -- take any necessary
+precautions if you decide to use one.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RMakefile.rb</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="RGSS_SCRIPT-constant" class="">RGSS_SCRIPT =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The name of an RGSS3 script in the Ace Script Editor providing <span class='object_link'><a href="" title="SES::RMake (module)">SES::RMake</a></span>
+tasks if the value of <span class='object_link'><a href="#FILE-constant" title="SES::RMake::FILE (constant)">FILE</a></span> is <code>:internal</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RMakefile</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+        <dt id="TRACE-constant" class="">TRACE =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Whether or not to print the full backtrace if an exception is encountered
+while running RMake.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='kw'>true</span></pre></dd>
+      
+        <dt id="Description-constant" class="">Description =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Script metadata.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Script</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:RMake</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='symbol'>:Solistra</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#runner-class_method" title="runner (class method)">+ (Runner<sup>?</sup>) <strong>runner</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The current <span class='object_link'><a href="RMake/Runner.html" title="SES::RMake::Runner (class)">Runner</a></span> if one exists.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="runner=-class_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="runner-class_method">
+  
+    + (<tt><span class='object_link'><a href="RMake/Runner.html" title="SES::RMake::Runner (class)">Runner</a></span></tt><sup>?</sup>) <strong>runner</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The current <span class='object_link'><a href="RMake/Runner.html" title="SES::RMake::Runner (class)">Runner</a></span> if one exists.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RMake/Runner.html" title="SES::RMake::Runner (class)">Runner</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_runner'>runner</span>
+  <span class='ivar'>@runner</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Dec 15 17:49:25 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

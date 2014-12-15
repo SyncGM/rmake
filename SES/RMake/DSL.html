@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: SES::RMake::DSL
+  
+    &mdash; SES RMake Documentation
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!SES/RMake/DSL.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../SES.html" title="SES (module)">SES</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../RMake.html" title="SES::RMake (module)">RMake</a></span></span>
+     &raquo; 
+    <span class="title">DSL</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: SES::RMake::DSL
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rmake.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <h1>DSL</h1>
+
+<p>Provides a simple domain-specific language for RMake.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#desc-instance_method" title="#desc (instance method)">- (String) <strong>desc</strong>(description) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Describes the next defined <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rmake-instance_method" title="#rmake (instance method)">- (Array&lt;Symbol&gt;<sup>?</sup>) <strong>rmake</strong>(*tasks) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a new <span class='object_link'><a href="Runner.html" title="SES::RMake::Runner (class)">Runner</a></span> and runs the tasks represented by the given task names through it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#task-instance_method" title="#task (instance method)">- (Task) <strong>task</strong>(type, &amp;action) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Defines a <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span> (or number of <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span> instances) and adds it to the current <span class='object_link'><a href="Runner.html" title="SES::RMake::Runner (class)">Runner</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="desc-instance_method">
+  
+    - (<tt>String</tt>) <strong>desc</strong>(description) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Describes the next defined <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span>. This information is primarily used
+to print RMake usage information.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>#to_s</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the description for the next defined task</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the prepared description</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+397
+398
+399
+400</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 397</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_desc'>desc</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span>
+  <span class='op'>::</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_prepare_task_description'>prepare_task_description</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rmake-instance_method">
+  
+    - (<tt>Array&lt;Symbol&gt;</tt><sup>?</sup>) <strong>rmake</strong>(*tasks) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new <span class='object_link'><a href="Runner.html" title="SES::RMake::Runner (class)">Runner</a></span> and runs the tasks represented by the given task
+names through it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>tasks</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;#to_sym&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the names of tasks to run</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>an array of task names which were run if
+successful, <code>nil</code> otherwise</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+408
+409
+410
+411</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 408</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rmake'>rmake</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasks'>tasks</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_runner'>runner</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='op'>::</span><span class='const'>Runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasks'>tasks</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_tasks'>tasks</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="task-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span></tt>) <strong>task</strong>(type, &amp;action) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Defines a <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span> (or number of <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span> instances) and adds it to the
+current <span class='object_link'><a href="Runner.html" title="SES::RMake::Runner (class)">Runner</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>#to_sym</tt>, <tt>Hash{#to_sym =&gt; Array&lt;#to_sym&gt;}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the name of the
+task (or a hash of tasks and their dependencies) being defined</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the defined <span class='object_link'><a href="Task.html" title="SES::RMake::Task (class)">Task</a></span> instance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 380</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_task'>task</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_action'>action</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_sym</span><span class='rparen'>)</span>
+    <span class='comment'># There can be no dependencies if the `type` responds to `#to_sym`.
+</span>    <span class='op'>::</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_add_task'>add_task</span><span class='lparen'>(</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='op'>::</span><span class='const'>Task</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_action'>action</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='rparen'>)</span><span class='op'>|</span>
+      <span class='op'>::</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_add_task'>add_task</span><span class='lparen'>(</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='op'>::</span><span class='const'>Task</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_d'>d</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_action'>action</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Dec 15 17:49:25 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
