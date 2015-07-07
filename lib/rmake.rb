@@ -1,5 +1,5 @@
 #--
-# RMake v1.0 by Solistra
+# RMake v1.1 by Solistra
 # =============================================================================
 # 
 # Summary
@@ -413,7 +413,7 @@ module SES
     # Register this script with the SES Core if it exists.
     if SES.const_defined?(:Register)
       # Script metadata.
-      Description = Script.new(:RMake, 1.0, :Solistra)
+      Description = Script.new(:RMake, 1.1, :Solistra)
       Register.enter(Description)
     end
   end
