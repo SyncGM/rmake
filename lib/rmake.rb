@@ -353,7 +353,7 @@ module SES
       # @param tasks [Array<Symbol>] the names of tasks to run
       # @return [Array<Symbol>, Exception] the names of the run tasks if this
       #   run was successful, the raised `Exception` otherwise
-      def run(*tasks)
+      def call(*tasks)
         tasks.map!(&:to_sym)
         if tasks.include?(:help) || tasks.include?(:tasks)
           print_usage
@@ -361,7 +361,7 @@ module SES
         else
           with_exception_handling do
             tasks << :default if tasks.empty?
-            tasks.select { |task| invoke_task(task) }
+            tasks.select(&method(:invoke_task))
           end
         end
       end
@@ -406,7 +406,7 @@ module SES
       #   successful, `nil` otherwise
       def rmake(*tasks)
         runner = ::SES::RMake::Runner.new
-        runner.run(*tasks) unless runner.tasks.empty?
+        runner.call(*tasks) unless runner.tasks.empty?
       end
     end
     
