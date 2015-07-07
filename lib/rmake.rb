@@ -158,7 +158,7 @@ module SES
       def initialize(name, dependencies = [], description = nil, &action)
         @name         = name.to_sym
         @dependencies = dependencies.map!(&:to_sym)
-        @description  = description.to_s if description
+        @description  = description
         @action       = action
         @invoked      = false
       end
@@ -194,8 +194,7 @@ module SES
       # 
       # @return [Task] this {Task} instance
       def clear
-        @invoked = false
-        self
+        tap { @invoked = false }
       end
     end
     # Runner
@@ -245,7 +244,7 @@ module SES
       def collect_tasks_internally
         script = $RGSS_SCRIPTS.find { |s| s[1] == SES::RMake::RGSS_SCRIPT }
         if script
-          with_exception_handling { TOPLEVEL_BINDING.eval(script.last) }
+          with_exception_handling { TOPLEVEL_BINDING.eval(script[3]) }
         else
           puts "Could not find internal script '#{SES::RMake::RGSS_SCRIPT}'!"
         end
@@ -306,7 +305,7 @@ module SES
       # 
       # @return [Hash{Symbol => Task}] the hash of known tasks
       def clear
-        @tasks.tap { |tasks| tasks.values.each { |task| task.clear } }
+        @tasks.tap { |tasks| tasks.each_value(&:clear) }
       end
       
       # Prints basic usage information and information about all of the tasks
@@ -315,7 +314,7 @@ module SES
       # @return [nil]
       def print_usage
         puts 'Usage: rmake [:task[, :task ...]]', 'Tasks:'
-        @tasks.values.each do |t|
+        @tasks.each_value do |t|
           puts '  %-16.16s %-16s' % [t.name, t.description || '(undescribed)']
         end
         return
@@ -335,7 +334,7 @@ module SES
       rescue SystemExit
         exit!
       rescue Exception => ex
-        STDERR.puts(if SES::RMake::TRACE
+        $stderr.puts(if SES::RMake::TRACE
           for l in ex.backtrace
             break if l[/^:1:/]
             (trace ||= []) << l.gsub(/^{(\d+)}/) { $RGSS_SCRIPTS[$1.to_i][1] }
