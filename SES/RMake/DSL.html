@@ -251,13 +251,13 @@ to print RMake usage information.</p>
       <pre class="lines">
 
 
+396
 397
 398
-399
-400</pre>
+399</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 397</span>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 396</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_desc'>desc</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span>
@@ -331,17 +331,17 @@ successful, <code>nil</code> otherwise</p>
       <pre class="lines">
 
 
+407
 408
 409
-410
-411</pre>
+410</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 408</span>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 407</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rmake'>rmake</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasks'>tasks</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_runner'>runner</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='op'>::</span><span class='const'>Runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-  <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasks'>tasks</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_tasks'>tasks</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_tasks'>tasks</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_tasks'>tasks</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -411,6 +411,7 @@ task (or a hash of tasks and their dependencies) being defined</p>
       <pre class="lines">
 
 
+379
 380
 381
 382
@@ -420,11 +421,10 @@ task (or a hash of tasks and their dependencies) being defined</p>
 386
 387
 388
-389
-390</pre>
+389</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 380</span>
+      <pre class="code"><span class="info file"># File 'lib/rmake.rb', line 379</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_task'>task</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_action'>action</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='const'>SES</span><span class='op'>::</span><span class='const'>RMake</span><span class='period'>.</span><span class='id identifier rubyid_runner'>runner</span>
@@ -447,7 +447,7 @@ task (or a hash of tasks and their dependencies) being defined</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Dec 15 17:49:25 2014 by
+  Generated on Wed Jul  8 22:50:21 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>
